@@ -10,7 +10,7 @@ class MemoListScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MemoList />
+        <MemoList navigation={this.props.navigation}/>
         <CircleButton><Entypo name="plus" size={24} color="white" /></CircleButton>
       </View>
     );
