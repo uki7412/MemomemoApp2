@@ -11,7 +11,7 @@ class MemoListScreen extends React.Component {
     return (
       <View style={styles.container}>
         <MemoList navigation={this.props.navigation}/>
-        <CircleButton><Entypo name="plus" size={24} color="white" /></CircleButton>
+        <CircleButton onPress={() => { this.props.navigation.navigate('MemoEdit'); }}><Entypo name="plus" size={24} color="white" /></CircleButton>
       </View>
     );
   }

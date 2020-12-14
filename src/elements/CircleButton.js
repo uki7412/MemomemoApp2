@@ -4,11 +4,11 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 class CircleButton extends React.Component {
   render() {
-    const { style, color } = this.props;
+    const { style, color, onPress } = this.props;
 
     let bgColor = 'orange';
     let textColor = '#fff';
@@ -18,21 +18,27 @@ class CircleButton extends React.Component {
       textColor = 'orange';
     }
     return (
-      <View style={[styles.circleButton, style, { backgroundColor: bgColor }]}>
-        <Text style={[styles.circleButtonTitle, { color: textColor }]}>
-          {this.props.children}
-        </Text>
-      </View>
+      <TouchableHighlight style={[styles.container, style]} onPress={onPress} underlayColor="transparent">
+        <View style={[styles.circleButton, style, { backgroundColor: bgColor }]}>
+          <Text style={[styles.circleButtonTitle, { color: textColor }]}>
+            {this.props.children}
+          </Text>
+        </View>
+      </TouchableHighlight>
 
     );
   }
 }
 
 const styles = StyleSheet.create({
-  circleButton: {
+  container: {
+    width: 48,
+    height: 48,
     position: 'absolute',
-    bottom: 32,
-    right: 32,
+    bottom: 24,
+    right: 24,
+  },
+  circleButton: {
     width: 48,
     height: 48,
     borderRadius: 24,
